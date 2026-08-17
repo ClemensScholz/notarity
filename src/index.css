@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+/* @theme registers these as Tailwind utility colors (bg-surface, text-ink,
+ * border-border, etc.) using these light-mode values as defaults. It only
+ * controls which utility *classes* exist, not their runtime value — actual
+ * light/dark switching happens below via plain custom-property overrides,
+ * since @theme itself isn't meant to be nested inside @media. */
+@theme {
+  --font-sans: 'General Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f8f7fc;
+  --color-surface-sunken: #f1f0f7;
+  --color-border-DEFAULT: #e4e1ee;
+  --color-border-strong: #cbc6de;
+  --color-ink: #13044f;
+  --color-ink-muted: #5c5570;
+  --color-ink-faint: #928da3;
+  --color-accent: #501dff;
+  --color-accent-soft: #ede8ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #0e0b1a;
+    --color-surface-raised: #171325;
+    --color-surface-sunken: #0a0814;
+    --color-border-DEFAULT: #2a2540;
+    --color-border-strong: #3c3559;
+    --color-ink: #f5f3ff;
+    --color-ink-muted: #a8a2c0;
+    --color-ink-faint: #6b6484;
+    --color-accent: #8b6bff;
+    --color-accent-soft: #241c47;
+  }
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
